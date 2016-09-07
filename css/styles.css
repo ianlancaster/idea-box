@@ -1,0 +1,38 @@
+/*font-family: 'Roboto Slab', serif;
+font-family: 'Open Sans', sans-serif;*/
+
+header {
+  background-color: #E5F3F2;
+  padding-top: 30px;
+  text-align: center;
+}
+
+h1 {
+  font-family: 'Roboto Slab', serif;
+  font-size: 50px;
+  margin-bottom: 30px;
+}
+
+#titleIdea {
+  color: #00A79D;
+}
+
+#titleBox {
+  color: #6D6E71;
+}
+
+#ideaSubmissionForm {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 150px;
+  justify-content: space-between;
+  max-width: 700px;
+  margin: auto;
+}
+
+
+input {
+  font-size: 20px;
+  width: 100%;
+}
