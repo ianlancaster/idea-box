@@ -1,0 +1,135 @@
+/*font-family: 'Roboto Slab', serif;
+font-family: 'Open Sans', sans-serif;*/
+
+header {
+  background-color: #E5F3F2;
+  padding: 30px;
+  text-align: center;
+}
+
+h1 {
+  font-family: 'Roboto Slab', serif;
+  font-size: 50px;
+  margin-bottom: 30px;
+}
+
+#titleIdea {
+  color: #00A79D;
+}
+
+#titleBox {
+  color: #6D6E71;
+}
+
+#ideaSubmissionForm {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 125px;
+  justify-content: space-between;
+  max-width: 700px;
+  margin: auto;
+}
+
+input {
+  font-size: 20px;
+  width: 100%;
+}
+
+#ideaSaveButton {
+  background-color: #00A79D;
+  color: white;
+  font-size: 20px;
+  width: 100%;
+}
+
+main {
+  padding: 30px;
+}
+
+#ideaList {
+  display: flex;
+  flex-direction: column;
+  padding-top: 30px;
+}
+
+.idea {
+  border-bottom: 2px solid #D1D3D4;
+  padding-bottom: 15px;
+  position: relative;
+}
+
+.ideaTitle {
+  color: #6D6E71;
+  font-family: 'Roboto Slab', serif;
+  font-size: 20px;
+}
+
+.deleteIdeaButton {
+  background-image: url("../img/delete.svg");
+  height: 25px;
+  right: 0;
+  position: absolute;
+  top: 0;
+  width: 25px;
+}
+
+.deleteIdeaButton:hover {
+  background-image: url("../img/delete-hover.svg");
+  cursor: pointer;
+}
+
+.ideaBody {
+  color: #939598;
+  font-family: 'open sans', sans-serif;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.ideaPromoteButton {
+  background-image: url("../img/upvote.svg");
+  display: inline-block;
+  height: 25px;
+  width: 25px;
+}
+
+.ideaPromoteButton:hover {
+  background-image: url("../img/upvote-hover.svg");
+  cursor: pointer;
+}
+
+.ideaDemoteButton {
+  background-image: url("../img/downvote.svg");
+  display: inline-block;
+  height: 25px;
+  width: 25px;
+}
+
+.ideaDemoteButton:hover {
+  background-image: url("../img/downvote-hover.svg");
+  cursor: pointer;
+}
+
+.ideaQualityContainer {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  width: 150px;
+}
+
+.ideaQuality {
+  /*display: inline-block;*/
+}
+
+.ideaQualityLabel {
+  color: #6D6E71;
+  /*display: inline-block;*/
+  font-family: 'Roboto Slab', serif;
+  font-size: 14px;
+}
+
+.ideaQualityValue {
+  color: #6D6E71;
+  font-family: 'open sans', sans-serif;
+  font-size: 14px;
+}

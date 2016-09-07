@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>IdeaBox</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto+Slab:700" rel="stylesheet">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/styles.css">
+  </head>
+  <body>
+    <header>
+      <h1><span id="titleIdea">idea</span><span id="titleBox">box</span></h1>
+      <form id="ideaSubmissionForm" action="index.html" method="post">
+        <input id="ideaTitleInput" type="text"  placeholder="Title">
+        <input id="ideaBodyInput" type="text"  placeholder="Body">
+        <button id="ideaSaveButton" type="button" >save</button>
+      </form>
+    </header>
+    <main>
+      <input id="ideaSearchInput" type="text"  placeholder="Search">
+      <section id="ideaList">
+        <article class="idea">
+          <h3 class="ideaTitle">Example Idea 1</h3>
+          <div class="deleteIdeaButton"></div>
+          <p class="ideaBody">
+            Bacon ipsum dolor amet sirloin turducken bresaola, leberkas bacon ball tip corned beef pig filet mignon cupim tri-tip meatball shank. Biltong andouille beef swine pork.
+          </p>
+          <div class="ideaQualityContainer">
+            <div class="ideaPromoteButton"></div>
+            <div class="ideaDemoteButton"></div>
+            <p class="ideaQuality">
+              <span class="ideaQualityLabel">quality: </span><span class="ideaQualityValue">swill</span>
+            </p>
+          </div>
+        </article>
+      </section>
+    </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascrip" src="./js/scripts.js"></script>
+  </body>
+</html>
