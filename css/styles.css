@@ -3,7 +3,7 @@ font-family: 'Open Sans', sans-serif;*/
 
 header {
   background-color: #E5F3F2;
-  padding-top: 30px;
+  padding: 30px;
   text-align: center;
 }
 
@@ -25,14 +25,57 @@ h1 {
   align-items: center;
   display: flex;
   flex-direction: column;
-  height: 150px;
+  height: 125px;
   justify-content: space-between;
   max-width: 700px;
   margin: auto;
 }
 
-
 input {
   font-size: 20px;
   width: 100%;
+}
+
+#ideaSaveButton {
+  background-color: #00A79D;
+  color: white;
+  font-size: 20px;
+  width: 100%;
+}
+
+main {
+  padding: 30px;
+}
+
+#ideaList {
+  display: flex;
+  flex-direction: column;
+  padding-top: 30px;
+}
+
+.idea {
+  border-bottom: 2px solid #D1D3D4;
+}
+
+.ideaTitle {
+  color: #6D6E71;
+  font-family: 'Roboto Slab', serif;
+  font-size: 20px;
+}
+
+.ideaBody {
+  color: #939598;
+  font-family: 'open sans', sans-serif;
+}
+
+.ideaQualityLabel {
+  color: #6D6E71;
+  font-family: 'Roboto Slab', serif;
+  font-size: 14px;
+}
+
+.ideaQualityValue {
+  color: #6D6E71;
+  font-family: 'open sans', sans-serif;
+  font-size: 14px;
 }
