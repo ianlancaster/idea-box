@@ -10,11 +10,25 @@
     <header>
       <h1><span id="titleIdea">idea</span><span id="titleBox">box</span></h1>
       <form id="ideaSubmissionForm" action="index.html" method="post">
-        <input type="text" id="ideaTitleInput" placeholder="Title">
-        <input type="text" id="ideaBodyInput" placeholder="Body">
-        <button type="button" id="ideaSaveButton">save</button>
+        <input id="ideaTitleInput" type="text"  placeholder="Title">
+        <input id="ideaBodyInput" type="text"  placeholder="Body">
+        <button id="ideaSaveButton" type="button" >save</button>
       </form>
     </header>
+    <main>
+      <input id="ideaSearchInput" type="search"  placeholder="Search">
+      <section id="ideaList">
+        <article class="idea">
+          <h3 class="ideaTitle">Example Idea 1</h3>
+          <button class="deleteIdeaButton" type="button"></button>
+          <p class="ideaBody">
+            My idea
+          </p>
+          <button class="ideaPromptButton" type="button"></button>
+          <button class="ideaDemoteButton" type="button"></button>
+        </article>
+      </section>
+    </main>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script type="text/javascrip" src="./js/scripts.js"></script>
   </body>
