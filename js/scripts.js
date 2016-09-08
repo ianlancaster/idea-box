@@ -1,7 +1,8 @@
-$ideaTitleInput = $('#ideaTitleInput');
-$ideaBodyInput = $('#ideaBodyInput');
-$ideaSaveButton = $('#ideaSaveButton');
-$ideaList = $('#ideaList');
+var $ideaTitleInput = $('#ideaTitleInput');
+var $ideaBodyInput = $('#ideaBodyInput');
+var $ideaSaveButton = $('#ideaSaveButton');
+var $ideaList = $('#ideaList');
+var ideaIndex = [];
 
 checkIdeaIndex();
 
@@ -25,12 +26,16 @@ function setSaveButtonStatus () {
   var title = $ideaTitleInput.val();
   var body = $ideaBodyInput.val();
 
+  ideaIndex.push(id);
+  localStorage.setItem('ideaIndex',JSON.stringify(ideaIndex));
+
   var idea = {
     id: id,
     quality: quality,
     title: title,
     body: body
   }
+
 
   var stringifiedIdea = JSON.stringify(idea);
   localStorage.setItem(id,stringifiedIdea);
@@ -56,7 +61,6 @@ function getIdeas() {
   $ideaList.prepend(compiledIdea);
 };
 
-var ideaIndex
 
 function checkIdeaIndex() {
   if (localStorage.getItem('ideaIndex') === null) {
