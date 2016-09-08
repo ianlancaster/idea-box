@@ -3,6 +3,8 @@ $ideaBodyInput = $('#ideaBodyInput');
 $ideaSaveButton = $('#ideaSaveButton');
 $ideaList = $('#ideaList');
 
+checkIdeaIndex();
+
 // disable submit button if title or body are missing
 $('#ideaTitleInput, #ideaBodyInput').on('keyup', function() {
   setSaveButtonStatus();
@@ -36,11 +38,33 @@ function setSaveButtonStatus () {
   var parsedIdea = JSON.parse(gotIdea);
   var compiledIdea = createIdea(parsedIdea.title, parsedIdea.body, parsedIdea.quality);
   $ideaList.prepend(compiledIdea);
-  
+
   clearInputFields();
   setSaveButtonStatus();
 });
 
+function getIdeas() {
+
+  // var ideaIndex[] =
+  //This will need to run on page load:
+  //if ideaIndex array exists in localStorage, get the array
+  //else create and empty array to prevent an error from the push to ideaIndex array then push to localStorage
+
+  var gotIdea= localStorage.getItem(id);
+  var parsedIdea = JSON.parse(gotIdea);
+  var compiledIdea = createIdea(parsedIdea.title, parsedIdea.body, parsedIdea.quality);
+  $ideaList.prepend(compiledIdea);
+};
+
+var ideaIndex
+
+function checkIdeaIndex() {
+  if (localStorage.getItem('ideaIndex') === null) {
+    localStorage.setItem('ideaIndex',JSON.stringify([]));
+  } else {
+    ideaIndex = JSON.parse(localStorage.getItem('ideaIndex'));
+  }
+};
 
 // $ideaSaveButton.on('click', function() {
 //   console.log('ping');
