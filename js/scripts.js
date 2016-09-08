@@ -4,7 +4,7 @@ $ideaSaveButton = $('#ideaSaveButton');
 
 // disable submit button if title or body are missing
 $('#ideaTitleInput, #ideaBodyInput').on('keyup', function() {
-  if($ideaTitleInput == '' || $ideaBodyInput == '') {
+  if($ideaTitleInput.val() === '' || $ideaBodyInput.val() === '') {
     $ideaSaveButton.prop('disabled', true);
   } else {
     $ideaSaveButton.prop('disabled', false);
