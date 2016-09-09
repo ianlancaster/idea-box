@@ -9,12 +9,16 @@ $('#idea-title-input, #idea-body-input').on('keyup', function() {
 });
 
 $ideaSaveButton.on('click', function() {
-  ideas.add();
-  ideas.store();
-  ideas.render();
+  ideaList.add();
+});
+
+function returnIdeaTitle () {
+  return $ideaTitleInput.val();
 };
 
-
+function returnIdeaBody () {
+  return $ideaBodyInput.val();
+};
 
 function setSaveButtonStatus () {
   var enableDisableButton = ($ideaTitleInput.val() === '' || $ideaBodyInput.val() === '');
@@ -26,17 +30,19 @@ var ideaList = {
   ideas: [],
 
   add: function () {
-    this.ideas.push(new Idea(title, body));
+    this.ideas.push(new Idea(returnIdeaTitle(), returnIdeaBody()));
+    this.store();
   },
   remove: function () {},
   find: function () {},
   store: function () {
     localStorage.setItem('ideas', JSON.stringify(this.ideas));
+    this.render();
   },
   retreive: function () {},
   render: function () {
     $ideaList.html(this.ideas.map(function (idea) {
-      return idea.toHTML();
+      return idea.toHTML()
     }));
   }
 };
@@ -54,5 +60,5 @@ Idea.prototype = {
   remove: function () {},
   toHTML: function () {
     return $('<article id="' + this.id + '" class="idea"><h3 class="idea-title">' + this.title + '</h3><div class="delete-idea-button"></div><p class="idea-body">' + this.body + '</p><div class="idea-quality-container"><div class="idea-promote-button"></div><div class="idea-demote-button"></div><p class="ideaQuality"><span class="idea-quality-label">quality: </span><span class="idea-quality-value">' + this.quality + '</span></p></div></article>');
-  };
+  }
 }
