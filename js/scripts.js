@@ -1,7 +1,7 @@
-var $ideaTitleInput = $('#ideaTitleInput');
-var $ideaBodyInput = $('#ideaBodyInput');
-var $ideaSaveButton = $('#ideaSaveButton');
-var $ideaList = $('#ideaList');
+var $ideaTitleInput = $('#idea-title-input');
+var $ideaBodyInput = $('#idea-body-input');
+var $ideaSaveButton = $('#idea-save-button');
+var $ideaList = $('#idea-list');
 var ideaIndex = [];
 
 setIdeaIndex();
@@ -24,10 +24,10 @@ function getIdeas() {
 };
 
 function createIdea(ideaTitle, ideaBody, ideaQuality, ideaId) {
-  return $('<article id="' + ideaId + '" class="idea"><h3 class="ideaTitle">' + ideaTitle + '</h3><div class="deleteIdeaButton"></div><p class="ideaBody">' + ideaBody + '</p><div class="ideaQualityContainer"><div class="ideaPromoteButton"></div><div class="ideaDemoteButton"></div><p class="ideaQuality"><span class="ideaQualityLabel">quality: </span><span class="ideaQualityValue">' + ideaQuality + '</span></p></div></article>');
+  return $('<article id="' + ideaId + '" class="idea"><h3 class="idea-title">' + ideaTitle + '</h3><div class="delete-idea-button"></div><p class="idea-body">' + ideaBody + '</p><div class="idea-quality-container"><div class="idea-promote-button"></div><div class="idea-demote-button"></div><p class="ideaQuality"><span class="idea-quality-label">quality: </span><span class="idea-quality-value">' + ideaQuality + '</span></p></div></article>');
 };
 
-$('#ideaTitleInput, #ideaBodyInput').on('keyup', function() {
+$('#idea-title-input, #idea-body-input').on('keyup', function() {
   setSaveButtonStatus();
 });
 
@@ -63,7 +63,7 @@ function clearInputFields() {
   $ideaBodyInput.val('');
 };
 
-$(document).on('click', '.deleteIdeaButton', function () {
+$(document).on('click', '.delete-idea-button', function () {
   console.log($(this).parent().prop('id'));
   var thisId = $(this).parent().prop('id');
   localStorage.removeItem(thisId);

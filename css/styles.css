@@ -13,15 +13,15 @@ h1 {
   margin-bottom: 30px;
 }
 
-#titleIdea {
+#title-idea {
   color: #00A79D;
 }
 
-#titleBox {
+#title-box {
   color: #6D6E71;
 }
 
-#ideaSubmissionForm {
+#idea-submission-form {
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -36,7 +36,7 @@ input {
   width: 100%;
 }
 
-#ideaSaveButton {
+#idea-save-button {
   background-color: #00A79D;
   color: white;
   font-size: 20px;
@@ -50,7 +50,7 @@ main {
   margin: auto;
 }
 
-#ideaList {
+#idea-list {
   display: flex;
   flex-direction: column;
   padding-top: 30px;
@@ -63,13 +63,13 @@ main {
   position: relative;
 }
 
-.ideaTitle {
+.idea-title {
   color: #6D6E71;
   font-family: 'Roboto Slab', serif;
   font-size: 20px;
 }
 
-.deleteIdeaButton {
+.delete-idea-button {
   background-image: url("../img/delete.svg");
   height: 25px;
   right: 0;
@@ -78,61 +78,61 @@ main {
   width: 25px;
 }
 
-.deleteIdeaButton:hover {
+.delete-idea-button:hover {
   background-image: url("../img/delete-hover.svg");
   cursor: pointer;
 }
 
-.ideaBody {
+.idea-body {
   color: #939598;
   font-family: 'open sans', sans-serif;
   margin-bottom: 15px;
   margin-top: 15px;
 }
 
-.ideaPromoteButton {
+.idea-promote-button {
   background-image: url("../img/upvote.svg");
   display: inline-block;
   height: 25px;
   width: 25px;
 }
 
-.ideaPromoteButton:hover {
+.idea-promote-button:hover {
   background-image: url("../img/upvote-hover.svg");
   cursor: pointer;
 }
 
-.ideaDemoteButton {
+.idea-demote-button {
   background-image: url("../img/downvote.svg");
   display: inline-block;
   height: 25px;
   width: 25px;
 }
 
-.ideaDemoteButton:hover {
+.idea-demote-button:hover {
   background-image: url("../img/downvote-hover.svg");
   cursor: pointer;
 }
 
-.ideaQualityContainer {
+.idea-quality-container {
   align-items: center;
   display: flex;
   justify-content: space-between;
   width: 150px;
 }
 
-.ideaQuality {
+.idea-quality {
   /*display: inline-block;*/
 }
 
-.ideaQualityLabel {
+.idea-quality-label {
   color: #6D6E71;
   /*display: inline-block;*/
   font-family: 'Roboto Slab', serif;
   font-size: 14px;
 }
 
-.ideaQualityValue {
+.idea-quality-value {
   color: #6D6E71;
   font-family: 'open sans', sans-serif;
   font-size: 14px;
