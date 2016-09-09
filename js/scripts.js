@@ -13,8 +13,17 @@ $ideaSaveButton.on('click', function() {
 });
 
 $(document).on('click', '.delete-idea-button', function () {
-  var thisId = $(this).parent().prop('id');
+  var thisId = $(this).parents().prop('id');
   ideaList.remove(thisId);
+});
+
+$(document).on('click', '.idea-promote-button',
+function () {
+  var thisId = parseInt($(this).parents('.idea').prop('id'));
+  console.log(thisId);
+  console.log($(this).parents('.idea').prop('id'));
+  console.log(ideaList.find(thisId));
+  ideaList.find(thisId).qualityUp();
 });
 
 function returnIdeaTitle () {
@@ -40,7 +49,6 @@ var ideaList = {
   },
   remove: function (id) {
     id = parseInt(id);
-    console.log(this.ideas);
     this.ideas = this.ideas.filter(function (idea) {
       return idea.id !== id;
     });
@@ -73,10 +81,21 @@ function Idea(title, body, quality, id) {
   this.id = id || Date.now();
 };
 
+
 Idea.prototype = {
-  qualityUp: function () {},
-  qualityDown: function () {},
-  remove: function () {},
+  qualityUp: function () {
+    // (“swill” → “plausible”, “plausible” → “genius”)
+    if (this.quality = 'swill') {
+      this.quality = 'plausible';
+    }
+    if (this.quality = 'plausible') {
+      this.quality = 'genius';
+    }
+    ideaList.store();
+  },
+  qualityDown: function () {
+    //  (“genius” → “plausible”, “plausible” → “swill”).
+  },
   toHTML: function () {
     return $('<article id="' + this.id + '" class="idea"><h3 class="idea-title">' + this.title + '</h3><div class="delete-idea-button"></div><p class="idea-body">' + this.body + '</p><div class="idea-quality-container"><div class="idea-promote-button"></div><div class="idea-demote-button"></div><p class="ideaQuality"><span class="idea-quality-label">quality: </span><span class="idea-quality-value">' + this.quality + '</span></p></div></article>');
   }
