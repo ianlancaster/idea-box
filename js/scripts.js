@@ -27,6 +27,10 @@ $(document).on('click', '.idea-demote-button', function () {
   ideaList.find(thisId).qualityDown();
 });
 
+$(document).on('keyup', '.idea-title, .idea-body', function(){
+
+});
+
 function returnIdeaTitle () {
   return $ideaTitleInput.val();
 };
@@ -73,10 +77,14 @@ var ideaList = {
     }
   },
   render: function () {
-    $ideaList.html(this.ideas.map(function (idea) {
-      return idea.toHTML()
-    }));
-  }
+      // Ref: http://www.w3schools.com/jsref/jsref_sort.asp
+      var sortedIdeasID = this.ideas.sort(function(a, b) {
+        return b.id-a.id
+      });
+      $ideaList.html(sortedIdeasID.map(function (idea) {
+        return idea.toHTML()
+      }));
+    }
 };
 
 function Idea(title, body, quality, id) {
@@ -109,7 +117,16 @@ Idea.prototype = {
     ideaList.store();
   },
   toHTML: function () {
-    return $('<article id="' + this.id + '" class="idea"><h3 class="idea-title">' + this.title + '</h3><div class="delete-idea-button"></div><p class="idea-body">' + this.body + '</p><div class="idea-quality-container"><div class="idea-promote-button"></div><div class="idea-demote-button"></div><p class="ideaQuality"><span class="idea-quality-label">quality: </span><span class="idea-quality-value">' + this.quality + '</span></p></div></article>');
+    return $(
+      '<article id="'
+      + this.id +
+      '" class="idea"><input type="text" class="idea-title" value="'
+      + this.title +
+      '"><div class="delete-idea-button"></div><input type="text" class="idea-body" value="'
+      + this.body +
+      '"><div class="idea-quality-container"><div class="idea-promote-button"></div><div class="idea-demote-button"></div><p class="ideaQuality"><span class="idea-quality-label">quality: </span><span class="idea-quality-value">'
+      + this.quality +
+      '</span></p></div></article>');
   }
 }
 

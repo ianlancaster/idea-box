@@ -67,6 +67,7 @@ main {
   color: #6D6E71;
   font-family: 'Roboto Slab', serif;
   font-size: 20px;
+  border: none;
 }
 
 .delete-idea-button {
@@ -88,6 +89,7 @@ main {
   font-family: 'open sans', sans-serif;
   margin-bottom: 15px;
   margin-top: 15px;
+  border: none;
 }
 
 .idea-promote-button {
@@ -118,7 +120,7 @@ main {
   align-items: center;
   display: flex;
   justify-content: space-between;
-  width: 150px;
+  width: 170px;
 }
 
 .idea-quality {
