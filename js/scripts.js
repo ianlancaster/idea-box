@@ -17,13 +17,14 @@ $(document).on('click', '.delete-idea-button', function () {
   ideaList.remove(thisId);
 });
 
-$(document).on('click', '.idea-promote-button',
-function () {
+$(document).on('click', '.idea-promote-button', function () {
   var thisId = parseInt($(this).parents('.idea').prop('id'));
-  console.log(thisId);
-  console.log($(this).parents('.idea').prop('id'));
-  console.log(ideaList.find(thisId));
   ideaList.find(thisId).qualityUp();
+});
+
+$(document).on('click', '.idea-demote-button', function () {
+  var thisId = parseInt($(this).parents('.idea').prop('id'));
+  ideaList.find(thisId).qualityDown();
 });
 
 function returnIdeaTitle () {
@@ -54,7 +55,11 @@ var ideaList = {
     });
     this.store();
   },
-  find: function () {},
+  find: function (id) {
+    return this.ideas.find(function (idea) {
+      return idea.id === id;
+    });
+  },
   store: function () {
     localStorage.setItem('ideas', JSON.stringify(this.ideas));
     this.render();
@@ -85,16 +90,23 @@ function Idea(title, body, quality, id) {
 Idea.prototype = {
   qualityUp: function () {
     // (“swill” → “plausible”, “plausible” → “genius”)
-    if (this.quality = 'swill') {
-      this.quality = 'plausible';
-    }
-    if (this.quality = 'plausible') {
+    if (this.quality === 'plausible') {
       this.quality = 'genius';
+    }
+    if (this.quality === 'swill') {
+      this.quality = 'plausible';
     }
     ideaList.store();
   },
   qualityDown: function () {
-    //  (“genius” → “plausible”, “plausible” → “swill”).
+    //  (“genius” → “plausible”, “plausible” → “swill”)
+    if (this.quality === 'plausible') {
+      this.quality = 'swill';
+    }
+    if (this.quality === 'genius') {
+      this.quality = 'plausible'
+    }
+    ideaList.store();
   },
   toHTML: function () {
     return $('<article id="' + this.id + '" class="idea"><h3 class="idea-title">' + this.title + '</h3><div class="delete-idea-button"></div><p class="idea-body">' + this.body + '</p><div class="idea-quality-container"><div class="idea-promote-button"></div><div class="idea-demote-button"></div><p class="ideaQuality"><span class="idea-quality-label">quality: </span><span class="idea-quality-value">' + this.quality + '</span></p></div></article>');
