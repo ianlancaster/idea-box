@@ -39,6 +39,12 @@ $(document).on('keyup', '.idea-title', function(){
   ideaList.find(thisId).updateTitle(title);
 });
 
+$(document).on('keyup', '#idea-search-input', function(){
+  var searchValue = $(this).val();
+  console.log(searchValue);
+  ideaList.search(searchValue);
+})
+
 function returnIdeaTitle () {
   return $ideaTitleInput.val();
 };
@@ -75,6 +81,23 @@ var ideaList = {
       return idea.id === id;
     });
   },
+  search: function(searchValue) {
+    var matches = [];
+    this.ideas.forEach(function(idea) {
+      if (idea.title.indexOf(searchValue) > -1) {
+        matches.push(idea);
+      };
+      if (idea.body.indexOf(searchValue) > -1) {
+        matches.push(idea);
+      };
+    });
+    var sortedIdeasId = matches.sort(function(a, b) {
+      return b.id-a.id
+    });
+    $ideaList.html(sortedIdeasId.map(function (match) {
+      return match.toHTML();
+    }));
+  },
   store: function () {
     localStorage.setItem('ideas', JSON.stringify(this.ideas));
   },
@@ -88,10 +111,10 @@ var ideaList = {
   },
   render: function () {
       // Ref: http://www.w3schools.com/jsref/jsref_sort.asp
-      var sortedIdeasID = this.ideas.sort(function(a, b) {
+      var sortedIdeasId = this.ideas.sort(function(a, b) {
         return b.id-a.id
       });
-      $ideaList.html(sortedIdeasID.map(function (idea) {
+      $ideaList.html(sortedIdeasId.map(function (idea) {
         return idea.toHTML()
       }));
     }
@@ -126,7 +149,7 @@ Idea.prototype = {
       this.quality = 'plausible'
     }
     ideaList.store();
-    this.render();
+    // this.render();
   },
   toHTML: function () {
     return $(
