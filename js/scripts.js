@@ -138,7 +138,8 @@ Idea.prototype = {
       this.quality = 'plausible';
     }
     ideaList.store();
-    this.render();
+    ideaList.render();
+    // this.render();
   },
   qualityDown: function () {
     //  (“genius” → “plausible”, “plausible” → “swill”)
@@ -149,6 +150,7 @@ Idea.prototype = {
       this.quality = 'plausible'
     }
     ideaList.store();
+    ideaList.render();
     // this.render();
   },
   toHTML: function () {
