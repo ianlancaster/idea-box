@@ -58,7 +58,6 @@ function setSaveButtonStatus () {
     $ideaSaveButton.prop('disabled', enableDisableButton);
 }
 
-
 var ideaList = {
   ideas: [],
 
@@ -83,6 +82,7 @@ var ideaList = {
   },
   search: function(searchValue) {
     var matches = [];
+    // Ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf
     this.ideas.forEach(function(idea) {
       if (idea.title.indexOf(searchValue) > -1) {
         matches.push(idea);
