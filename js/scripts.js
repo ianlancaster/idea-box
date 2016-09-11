@@ -10,6 +10,8 @@ $('#idea-title-input, #idea-body-input').on('keyup', function() {
 
 $ideaSaveButton.on('click', function() {
   ideaList.add();
+  $ideaTitleInput.val('');
+  $ideaBodyInput.val('');
 });
 
 $(document).on('click', '.delete-idea-button', function () {
@@ -41,9 +43,13 @@ $(document).on('keyup', '.idea-title', function(){
 
 $(document).on('keyup', '#idea-search-input', function(){
   var searchValue = $(this).val();
-  console.log(searchValue);
-  ideaList.search(searchValue);
-})
+  if (searchValue) {
+    ideaList.search(searchValue);
+  } else {
+    ideaList.retreive();
+    ideaList.render();
+  };
+});
 
 function returnIdeaTitle () {
   return $ideaTitleInput.val();
@@ -87,12 +93,12 @@ var ideaList = {
       if (idea.title.indexOf(searchValue) > -1) {
         matches.push(idea);
       };
-      if (idea.body.indexOf(searchValue) > -1) {
+      if (idea.body.indexOf(searchValue) > -1 && idea.body.indexOf(searchValue) !== idea.title.indexOf(searchValue)) {
         matches.push(idea);
       };
     });
     var sortedIdeasId = matches.sort(function(a, b) {
-      return b.id-a.id
+      return b.id-a.id;
     });
     $ideaList.html(sortedIdeasId.map(function (match) {
       return match.toHTML();
@@ -126,7 +132,6 @@ function Idea(title, body, quality, id) {
   this.quality = quality || 'swill';
   this.id = id || Date.now();
 };
-
 
 Idea.prototype = {
   qualityUp: function () {
