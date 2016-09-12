@@ -27,26 +27,36 @@ h1 {
   flex-direction: column;
   height: 125px;
   justify-content: space-between;
-  max-width: 700px;
+  max-width: 500px;
   margin: auto;
 }
 
-input {
+input, textarea {
   font-size: 20px;
   width: 100%;
+  padding: 3px 0px;
+  border: solid 1px #b3b3b3;
 }
 
 #idea-save-button {
   background-color: #00A79D;
   color: white;
   font-size: 20px;
-  width: 100%;
+  width: 100.4%;
   cursor: pointer;
+  border: none;
+  padding: 7px 0px;
 }
+
+#idea-save-button:disabled {
+  background-color: #C9C9C9;
+  cursor: not-allowed;
+}
+
 
 main {
   padding: 30px;
-  max-width: 700px;
+  max-width: 500px;
   margin: auto;
 }
 
@@ -138,4 +148,13 @@ main {
   color: #6D6E71;
   font-family: 'open sans', sans-serif;
   font-size: 14px;
+}
+
+@media (max-width: 450px) {
+  #idea-body-input {
+    height: 100px;
+  }
+
+  #idea-submission-form {
+    height: 210px
 }
