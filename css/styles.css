@@ -36,6 +36,7 @@ input, textarea {
   width: 100%;
   padding: 3px 0px;
   border: solid 1px #b3b3b3;
+  resize: none;
 }
 
 #idea-save-button {
