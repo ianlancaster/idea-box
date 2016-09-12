@@ -27,7 +27,7 @@ h1 {
   flex-direction: column;
   height: 125px;
   justify-content: space-between;
-  max-width: 700px;
+  max-width: 500px;
   margin: auto;
 }
 
@@ -44,9 +44,13 @@ input {
   cursor: pointer;
 }
 
+input:disabled {
+  background-color; #222222;
+}
+
 main {
   padding: 30px;
-  max-width: 700px;
+  max-width: 500px;
   margin: auto;
 }
 
