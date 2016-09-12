@@ -1,7 +1,7 @@
 var $ideaTitleInput = $('#idea-title-input');
 var $ideaBodyInput = $('#idea-body-input');
 var $ideaSaveButton = $('#idea-save-button');
-
+var $ideaSearchInput = $('#idea-search-input');
 var $ideaList = $('#idea-list');
 
 $('#idea-title-input, #idea-body-input').on('keyup', function() {
@@ -135,7 +135,7 @@ function Idea(title, body, quality, id) {
 
 Idea.prototype = {
   qualityUp: function () {
-    // (“swill” → “plausible”, “plausible” → “genius”)
+    var searchValue = $ideaSearchInput.val();
     if (this.quality === 'plausible') {
       this.quality = 'genius';
     }
@@ -143,11 +143,10 @@ Idea.prototype = {
       this.quality = 'plausible';
     }
     ideaList.store();
-    ideaList.render();
-    // this.render();
+    ideaList.search(searchValue);
   },
   qualityDown: function () {
-    //  (“genius” → “plausible”, “plausible” → “swill”)
+    var searchValue = $ideaSearchInput.val();
     if (this.quality === 'plausible') {
       this.quality = 'swill';
     }
@@ -155,8 +154,7 @@ Idea.prototype = {
       this.quality = 'plausible'
     }
     ideaList.store();
-    ideaList.render();
-    // this.render();
+    ideaList.search(searchValue);
   },
   toHTML: function () {
     return $(
