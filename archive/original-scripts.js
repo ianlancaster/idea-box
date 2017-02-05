@@ -94,7 +94,7 @@ var ideaList = {
     var matches = [];
     // Ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf
     this.ideas.forEach(function(idea) {
-      if (idea.title.indexOf(searchValue) > -1) {
+      if (idea.title.indexOf(searchValue) > -1 || idea.body.indexOf(searchValue) > -1) {
         matches.push(idea);
       }
       if (idea.body.indexOf(searchValue) > -1 && idea.body.indexOf(searchValue) !== idea.title.indexOf(searchValue)) {
